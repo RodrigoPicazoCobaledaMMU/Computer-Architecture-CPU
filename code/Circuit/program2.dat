@@ -1,0 +1,29 @@
+v2.0 raw
+#--- ADDING OPERATION ---#
+102F 3000  	# 1. put first value to ACC and store to 00
+1002 3001  	# 2. put second value to ACC and store to 01
+2100	   	# 3. add ACC value to value from address 00
+3002		# 4. store ACC value to address 02 
+#--- AND OPERATION ---#
+2000 2201  	# 5. load from 00 to ACC, bitwise AND with value from 01
+3003 	 	# 6. store ACC value to address 03 
+#--- XOR OPERATION ---#
+2000 2301  	# 7. load from 00 to ACC, bitwise XOR with value from 01
+3004	 	# 8. store ACC value to address 04
+#--- LOGICAL RIGHT SHIFT OPERATION ---#
+2000 2400	# 9. Load value from 00 to ACC, Logical right shift of value from 00
+3005		# 10. store ACC value to address 05
+
+2001 2401	# 11. Load value from 01 to ACC, Logical right shift of value from 01
+3006		# 12. Store in address 06
+#--- COMPARATOR OPERATION ---#
+2000 2501	#13.  Load value from 00 to ACC, Comparator of value from 01
+3007		#14.  Store ACC value in address 07
+
+2001 2500	#15.  Load value from 01 to ACC, comparator of value from 01
+3008		#16.  Store ACC value in address 08
+
+2000 2500	#17.  Load value from 00 & 00
+3009		#18.  Store value in address 09
+#--- STOP OPERATION ---#
+f000		# Stop command

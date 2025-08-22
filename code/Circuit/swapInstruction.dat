@@ -1,0 +1,21 @@
+v2.0 raw
+#--- Values to be sorted ---#
+102f 3000	# Stores the value of 02 in address 00
+1002 3001	# Stores the value of 2f in address 01
+#--- Branch segment ---#
+2000 2501	#1.  Load value from 00 to ACC, Comparator of value from 01
+400F		#2.  If accumulator is 01 then branch to exit code
+#--- Sorting ---#
+2000 3002	#1.  Load value from address 00 to ACC and store at address 02 in memory B
+2001 3000	#2.  Load value from address 01 to ACC and store at address 00 in memory B
+2002 3001   #3.  Load value from address 02 to ACC and store at address 01 in memory B
+2010 3002   #4.  Set the value at address 02 in memory B to be 00
+#--- Display ---#
+2600
+3003
+2602
+3004
+5000
+5001
+#--- Stop ---#
+f000		#Stop
